@@ -15,4 +15,22 @@
 - Push Changes to Github
   - tools > version control > push branch
 
+## Development Info
+
+
+### Banner Comments
+
+Use the package "bannerCommenter" from the R console to generate banner comments. See help for more info.
+
+``` R
+install.packages("bannerCommenter")
+library(bannerCommenter)
+
+banner("line 1", "line 2", "line 3", ..., args)
+banner("This is a comment", "With 2 lines")
+
+```
+
 ## Data Sets
+
+
