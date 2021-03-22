@@ -16,35 +16,35 @@ library(DataCombine)
 
 clean_nep2004 <- DropNA(nep2004, "GAY", message = TRUE)
 clean_nep2004 <- DropNA(clean_nep2004, "SEX", message = TRUE)
-clean_nep2004 <- DropNA(clean_nep2004, "PARTYID", message = TRUE)
+clean_nep2004 <- DropNA(clean_nep2004, "HOU04", message = TRUE)
 
 clean_nep2006 <- DropNA(nep2006, "GAY", message = TRUE)
 clean_nep2006 <- DropNA(clean_nep2006, "SEX", message = TRUE)
-clean_nep2006 <- DropNA(clean_nep2006, "PARTYID", message = TRUE)
+clean_nep2006 <- DropNA(clean_nep2006, "HOU", message = TRUE)
 
 clean_nep2008 <- DropNA(nep2008, "GAY", message = TRUE)
 clean_nep2008 <- DropNA(clean_nep2008, "SEX", message = TRUE)
-clean_nep2008 <- DropNA(clean_nep2008, "PARTYID", message = TRUE)
+clean_nep2008 <- DropNA(clean_nep2008, "HOUUS08", message = TRUE)
 
 clean_nep2010 <- DropNA(nep2010, "GAY", message = TRUE)
 clean_nep2010 <- DropNA(clean_nep2010, "SEX", message = TRUE)
-clean_nep2010 <- DropNA(clean_nep2010, "PARTYID", message = TRUE)
+clean_nep2010 <- DropNA(clean_nep2010, "HOU", message = TRUE)
 
 clean_nep2012 <- DropNA(nep2012, "GAY", message = TRUE)
 clean_nep2012 <- DropNA(clean_nep2012, "SEX", message = TRUE)
-clean_nep2012 <- DropNA(clean_nep2012, "PARTYID", message = TRUE)
+clean_nep2012 <- DropNA(clean_nep2012, "HOU", message = TRUE)
 
 clean_nep2014 <- DropNA(nep2014, "GAY", message = TRUE)
 clean_nep2014 <- DropNA(clean_nep2014, "SEX", message = TRUE)
-clean_nep2014 <- DropNA(clean_nep2014, "PARTYID", message = TRUE)
+clean_nep2014 <- DropNA(clean_nep2014, "14HOU", message = TRUE)
 
 clean_nep2016 <- DropNA(nep2016, "GAY", message = TRUE)
 clean_nep2016 <- DropNA(clean_nep2016, "SEX", message = TRUE)
-clean_nep2016 <- DropNA(clean_nep2016, "PARTYID", message = TRUE)
+clean_nep2016 <- DropNA(clean_nep2016, "HOU16", message = TRUE)
 
 clean_nep2018 <- DropNA(nep2018, "GAY", message = TRUE)
 clean_nep2018 <- DropNA(clean_nep2018, "SEX", message = TRUE)
-clean_nep2018 <- DropNA(clean_nep2018, "PARTYID", message = TRUE)
+clean_nep2018 <- DropNA(clean_nep2018, "HOUUS18", message = TRUE)
 
 # Early Analysis
 gay_2004 <- clean_nep2004[which(clean_nep2004$GAY == 1),]
