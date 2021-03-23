@@ -36,47 +36,56 @@ clean_nep2012 <- DropNA(clean_nep2012, "HOU", message = TRUE)
 
 clean_nep2014 <- DropNA(nep2014, "GAY", message = TRUE)
 clean_nep2014 <- DropNA(clean_nep2014, "SEX", message = TRUE)
-clean_nep2014 <- DropNA(clean_nep2014, "14HOU", message = TRUE)
+clean_nep2014 <- DropNA(clean_nep2014, "HOU", message = TRUE)
 
-clean_nep2016 <- DropNA(nep2016, "GAY", message = TRUE)
+clean_nep2016 <- DropNA(nep2016, "LGBT", message = TRUE)
 clean_nep2016 <- DropNA(clean_nep2016, "SEX", message = TRUE)
-clean_nep2016 <- DropNA(clean_nep2016, "HOU16", message = TRUE)
+clean_nep2016 <- DropNA(clean_nep2016, "HOU", message = TRUE)
 
-clean_nep2018 <- DropNA(nep2018, "GAY", message = TRUE)
+clean_nep2018 <- DropNA(nep2018, "LGBT", message = TRUE)
 clean_nep2018 <- DropNA(clean_nep2018, "SEX", message = TRUE)
-clean_nep2018 <- DropNA(clean_nep2018, "HOUUS18", message = TRUE)
+clean_nep2018 <- DropNA(clean_nep2018, "HOU", message = TRUE)
 
-# Early Analysis
-gay_2004 <- clean_nep2004[which(clean_nep2004$GAY == 1),]
-gay_white_men_2004 <- gay_2004[which(gay_2004$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2004$PARTYID)),3)
+# LGB(T) & GB(T) White Men
+LGB_2004 <- clean_nep2004[which(clean_nep2004$GAY == 1),]
+GB_white_men_2004 <- LGB_2004[which(LGB_2004$SEXRACE == 1),]
+GB_white_men_2004 <- subset(GB_white_men_2004,HOU04!=0)
+round(prop.table(table(GB_white_men_2004$HOU04)),3)
+round(prop.table(table(LGB_2004$HOU04)),3)
 
-gay_2006 <- clean_nep2006[which(clean_nep2006$GAY == 1),]
-gay_white_men_2006 <- gay_2006[which(gay_2006$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2006$PARTYID)),3)
+LGB_2006 <- clean_nep2006[which(clean_nep2006$GAY == 1),]
+GB_white_men_2006 <- LGB_2006[which(LGB_2006$SEXRACE == 1),]
+round(prop.table(table(GB_white_men_2006$HOU)),3)
+round(prop.table(table(LGB_2006$HOU)),3)
 
-gay_2008 <- clean_nep2008[which(clean_nep2008$GAY == 1),]
-gay_white_men_2008 <- gay_2008[which(gay_2008$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2008$PARTYID)),3)
+LGB_2008 <- clean_nep2008[which(clean_nep2008$GAY == 1),]
+GB_white_men_2008 <- LGB_2008[which(LGB_2008$SEXRACE == 1),]
+round(prop.table(table(GB_white_men_2008$HOUUS08)),3)
+round(prop.table(table(LGB_2008$HOUUS08)),3)
 
-gay_2010 <- clean_nep2010[which(clean_nep2010$GAY == 1),]
-gay_white_men_2010 <- gay_2010[which(gay_2010$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2010$PARTYID)),3)
+LGB_2010 <- clean_nep2010[which(clean_nep2010$GAY == 1),]
+GB_white_men_2010 <- LGB_2010[which(LGB_2010$SEXBYRAC == 1),]
+round(prop.table(table(GB_white_men_2010$HOU)),3)
+round(prop.table(table(LGB_2010$HOU)),3)
 
-gay_2012 <- clean_nep2012[which(clean_nep2012$GAY == 1),]
-gay_white_men_2012 <- gay_2012[which(gay_2012$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2012$PARTYID)),3)
+LGB_2012 <- clean_nep2012[which(clean_nep2012$GAY == 1),]
+GB_white_men_2012 <- LGB_2012[which(LGB_2012$SEXBYRAC == 1),]
+round(prop.table(table(GB_white_men_2012$HOU)),3)
+round(prop.table(table(LGB_2012$HOU)),3)
 
-gay_2014 <- clean_nep2014[which(clean_nep2014$GAY == 1),]
-gay_white_men_2014 <- gay_2014[which(gay_2014$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2014$PARTYID)),3)
+LGB_2014 <- clean_nep2014[which(clean_nep2014$GAY == 1),]
+GB_white_men_2014 <- LGB_2014[which(LGB_2014$SEXBYRAC == 1),]
+round(prop.table(table(GB_white_men_2014$HOU)),3)
+round(prop.table(table(LGB_2014$HOU)),3)
 
-gay_2016 <- clean_nep2016[which(clean_nep2016$GAY == 1),]
-gay_white_men_2016 <- gay_2016[which(gay_2016$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2016$PARTYID)),3)
+LGBT_2016 <- clean_nep2016[which(clean_nep2016$LGBT == 1),]
+GBT_white_men_2016 <- LGBT_2016[which(LGBT_2016$SEXBYRAC == 1),]
+round(prop.table(table(GBT_white_men_2016$HOU)),3)
+round(prop.table(table(LGBT_2016$HOU)),3)
 
-gay_2018 <- clean_nep2018[which(clean_nep2018$GAY == 1),]
-gay_white_men_2018 <- gay_2018[which(gay_2018$SEXRACE == 1),]
-round(prop.table(table(gay_white_men_2018$PARTYID)),3)
+LGBT_2018 <- clean_nep2018[which(clean_nep2018$LGBT == 1),]
+GBT_white_men_2018 <- LGBT_2018[which(LGBT_2018$SEXBYRAC == 1),]
+round(prop.table(table(GBT_white_men_2018$HOU)),3)
+round(prop.table(table(LGBT_2018$HOU)),3)
 
 # Filter
