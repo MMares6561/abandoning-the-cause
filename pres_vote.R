@@ -330,6 +330,36 @@ straight_white_men_pres_result_oth <- c(straight_white_men_pres_nep2004_result["
                                         straight_white_men_pres_nep2016_result["9"]
                                         +straight_white_men_pres_nep2016_result["3"]
                                         +straight_white_men_pres_nep2016_result["4"])
+lgbandt_white_women_pres_result_dem <- c(lgb_white_women_pres_nep2004_result["1"],
+                                          lgb_white_women_pres_nep2008_result["1"],
+                                          lgb_white_women_pres_nep2012_result["1"],
+                                          lgbt_white_women_pres_nep2016_result["1"])
+lgbandt_white_women_pres_result_gop <- c(lgb_white_women_pres_nep2004_result["2"],
+                                          lgb_white_women_pres_nep2008_result["2"],
+                                          lgb_white_women_pres_nep2012_result["2"],
+                                          lgbt_white_women_pres_nep2016_result["2"])
+lgbandt_white_women_pres_result_oth <- c(lgb_white_women_pres_nep2004_result["9"]
+                                          +lgb_white_women_pres_nep2004_result["3"],
+                                          lgb_white_women_pres_nep2008_result["9"],
+                                          lgb_white_women_pres_nep2012_result["9"],
+                                          lgbt_white_women_pres_nep2016_result["9"]
+                                          +lgbt_white_women_pres_nep2016_result["2"]
+                                          +lgbt_white_women_pres_nep2016_result["3"])
+straight_white_women_pres_result_dem <- c(straight_white_women_pres_nep2004_result["1"],
+                                          straight_white_women_pres_nep2008_result["1"],
+                                          straight_white_women_pres_nep2012_result["1"],
+                                          straight_white_women_pres_nep2016_result["1"])
+straight_white_women_pres_result_gop <- c(straight_white_women_pres_nep2004_result["2"],
+                                          straight_white_women_pres_nep2008_result["2"],
+                                          straight_white_women_pres_nep2012_result["2"],
+                                          straight_white_women_pres_nep2016_result["2"])
+straight_white_women_pres_result_oth <- c(straight_white_women_pres_nep2004_result["9"]
+                                          +straight_white_women_pres_nep2004_result["3"],
+                                          straight_white_women_pres_nep2008_result["9"],
+                                          straight_white_women_pres_nep2012_result["9"],
+                                          straight_white_women_pres_nep2016_result["9"]
+                                          +straight_white_women_pres_nep2016_result["2"]
+                                          +straight_white_women_pres_nep2016_result["3"])
 lgbandt_poc_pres_result_dem <- c(lgb_poc_pres_nep2004_result["1"],
                                  lgb_poc_pres_nep2008_result["1"],
                                  lgb_poc_pres_nep2012_result["1"],
@@ -435,9 +465,9 @@ pres_data_over_time <- data.frame(presyear,
                                   lgbandt_men_pres_result_dem,
                                   lgbandt_men_pres_result_gop,
                                   lgbandt_men_pres_result_oth,
-                                  straight_women_pres_result_dem,
-                                  straight_women_pres_result_gop,
-                                  straight_women_pres_result_oth,
+                                  straight_men_pres_result_dem,
+                                  straight_men_pres_result_gop,
+                                  straight_men_pres_result_oth,
                                   lgbandt_white_pres_result_dem,
                                   lgbandt_white_pres_result_gop,
                                   lgbandt_white_pres_result_oth,
@@ -450,6 +480,12 @@ pres_data_over_time <- data.frame(presyear,
                                   straight_white_men_pres_result_dem,
                                   straight_white_men_pres_result_gop,
                                   straight_white_men_pres_result_oth,
+                                  lgbandt_white_women_pres_result_dem,
+                                  lgbandt_white_women_pres_result_gop,
+                                  lgbandt_white_women_pres_result_oth,
+                                  straight_white_women_pres_result_dem,
+                                  straight_white_women_pres_result_gop,
+                                  straight_white_women_pres_result_oth,
                                   lgbandt_poc_pres_result_dem,
                                   lgbandt_poc_pres_result_gop,
                                   lgbandt_poc_pres_result_oth,
@@ -468,3 +504,18 @@ pres_data_over_time <- data.frame(presyear,
                                   straight_poc_women_pres_result_dem,
                                   straight_poc_women_pres_result_gop,
                                   straight_poc_women_pres_result_oth)
+
+#Analysis
+pres_data_over_time$diff_pres_result_dem <- 
+  (pres_data_over_time$lgbandt_pres_result_dem-pres_data_over_time$straight_pres_result_dem)
+pres_data_over_time$diff_pres_result_gop <- 
+  (pres_data_over_time$lgbandt_pres_result_gop-pres_data_overt_time$straight_pres_result_gop)
+pres_data_over_time$diff_pres_result_oth <- 
+  (pres_data_over_time$lgbandt_pres_result_oth-pres_data_overt_time$straight_pres_result_oth)
+
+pres_data_over_time$diff_pres_result_dem <- 
+  (pres_data_over_time$lgbandt_pres_result_dem-pres_data_over_time$straight_pres_result_dem)
+pres_data_over_time$diff_pres_result_gop <- 
+  (pres_data_over_time$lgbandt_pres_result_gop-pres_data_overt_time$straight_pres_result_gop)
+pres_data_over_time$diff_pres_result_oth <- 
+  (pres_data_over_time$lgbandt_pres_result_oth-pres_data_overt_time$straight_pres_result_oth)
