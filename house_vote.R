@@ -3,6 +3,8 @@
 ##                  Data Cleaning & Filtering                  ##
 #################################################################
 
+pacman::p_load(DataCombine)
+
 #2004
 ##Cleaned up this section
 total_house_nep2004 <- subset((DropNA(nep2004, "HOU04", message = TRUE)), HOU04!=0)
