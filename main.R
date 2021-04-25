@@ -12,6 +12,9 @@ source("./init.r")
 source("load_nep_data.r")
 
 # Clean/Filter Data
+source("process_data.r")
+
+
 source("house_vote.r")
 source("pres_vote.r")
 

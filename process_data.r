@@ -37,7 +37,7 @@ nep18 <- rename(nep18, GAY = LGBT)
 nep18 <- add_column(nep18, PRES = NA, YEAR = 2018)
 
 # Filter wanted columns
-get_wanted <- function(nep_table, arg2, arg3) {
+get_wanted <- function(nep_table) {
   return(select(nep_table, PRES, HOU, GAY, RACE, YEAR, SEX, PARTYID, PHIL3))
 }
 

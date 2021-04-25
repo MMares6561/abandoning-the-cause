@@ -1,0 +1,90 @@
+percent_phil <- function(data_set){
+  return(round(prop.table(table(data_set$PHIL3)),3))
+}
+
+phil_analysis <- function(data_set,target_year){
+  x <- year(drop_na(data_set,PHIL3),target_year)
+  lib <-c(percent_phil(straight(x))["1"],
+          percent_phil(lgbt(x))["1"],
+          percent_phil(men(straight(x)))["1"],
+          percent_phil(men(lgbt(x)))["1"],
+          percent_phil(women(straight(x)))["1"],
+          percent_phil(women(lgbt(x)))["1"],
+          percent_phil(white(straight(x)))["1"],
+          percent_phil(white(lgbt(x)))["1"],
+          percent_phil(poc(straight(x)))["1"],
+          percent_phil(poc(lgbt(x)))["1"],
+          percent_phil(white(men((straight(x)))))["1"],
+          percent_phil(white(men(lgbt(x))))["1"],
+          percent_phil(poc(men(straight(x))))["1"],
+          percent_phil(poc(men(lgbt(x))))["1"],
+          percent_phil(white(women(straight(x))))["1"],
+          percent_phil(white(women(lgbt(x))))["1"],
+          percent_phil(poc(women(straight(x))))["1"],
+          percent_phil(poc(women(lgbt(x))))["1"])
+  mod <- c(percent_phil(straight(x))["2"],
+           percent_phil(lgbt(x))["2"],
+           percent_phil(men(straight(x)))["2"],
+           percent_phil(men(lgbt(x)))["2"],
+           percent_phil(women(straight(x)))["2"],
+           percent_phil(women(lgbt(x)))["2"],
+           percent_phil(white(straight(x)))["2"],
+           percent_phil(white(lgbt(x)))["2"],
+           percent_phil(poc(straight(x)))["2"],
+           percent_phil(poc(lgbt(x)))["2"],
+           percent_phil(white(men((straight(x)))))["2"],
+           percent_phil(white(men(lgbt(x))))["2"],
+           percent_phil(poc(men(straight(x))))["2"],
+           percent_phil(poc(men(lgbt(x))))["2"],
+           percent_phil(white(women(straight(x))))["2"],
+           percent_phil(white(women(lgbt(x))))["2"],
+           percent_phil(poc(women(straight(x))))["2"],
+           percent_phil(poc(women(lgbt(x))))["2"])
+  con <- c(percent_phil(straight(x))["3"],
+           percent_phil(lgbt(x))["3"],
+           percent_phil(men(straight(x)))["3"],
+           percent_phil(men(lgbt(x)))["3"],
+           percent_phil(women(straight(x)))["3"],
+           percent_phil(women(lgbt(x)))["3"],
+           percent_phil(white(straight(x)))["3"],
+           percent_phil(white(lgbt(x)))["3"],
+           percent_phil(poc(straight(x)))["3"],
+           percent_phil(poc(lgbt(x)))["3"],
+           percent_phil(white(men((straight(x)))))["3"],
+           percent_phil(white(men(lgbt(x))))["3"],
+           percent_phil(poc(men(straight(x))))["3"],
+           percent_phil(poc(men(lgbt(x))))["3"],
+           percent_phil(white(women(straight(x))))["3"],
+           percent_phil(white(women(lgbt(x))))["3"],
+           percent_phil(poc(women(straight(x))))["3"],
+           percent_phil(poc(women(lgbt(x))))["3"])
+  obs <- c(nrow(straight(x)),
+           nrow(lgbt(x)),
+           nrow(men(straight(x))),
+           nrow(men(lgbt(x))),
+           nrow(women(straight(x))),
+           nrow(women(lgbt(x))),
+           nrow(white(straight(x))),
+           nrow(white(lgbt(x))),
+           nrow(poc(straight(x))),
+           nrow(poc(lgbt(x))),
+           nrow(white(men((straight(x))))),
+           nrow(white(men(lgbt(x)))),
+           nrow(poc(men(straight(x)))),
+           nrow(poc(men(lgbt(x)))),
+           nrow(white(women(straight(x)))),
+           nrow(white(women(lgbt(x)))),
+           nrow(poc(women(straight(x)))),
+           nrow(poc(women(lgbt(x)))))
+  return(as_tibble(data.frame(lib,mod,con,obs)))
+}
+##Creating CSV of Results
+
+phil_results_table <- data.frame(group,
+                                  phil_analysis(nep_full,2000),
+                                  phil_analysis(nep_full,2004),
+                                  phil_analysis(nep_full,2008),
+                                  phil_analysis(nep_full,2012),
+                                  phil_analysis(nep_full,2016))
+write.table(phil_results_table, file="phil_results_table.csv", sep=",",row.name=FALSE)
+

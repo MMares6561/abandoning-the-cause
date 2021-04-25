@@ -8,4 +8,3 @@ if (!'pacman' %in% installed.packages()) {
 
 # Load pacman, it will be used to load all future libraries
 library(pacman)
-
