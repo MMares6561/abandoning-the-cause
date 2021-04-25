@@ -8,13 +8,9 @@ pacman::p_load(tidyverse)
 # 2000
 nep00 <- add_column(nep00, YEAR = 2000)
 
-# 2002 - add gay column na
-nep02 <- add_column(nep02, PRES = NA, GAY = NA, YEAR = 2002)
-
-
 # 2004
- nep04 <- rename(nep04, PRES = PRES04, HOU = HOU04)
- nep04 <- add_column(nep04, YEAR = 2004)
+nep04 <- rename(nep04, PRES = PRES04, HOU = HOU04)
+nep04 <- add_column(nep04, YEAR = 2004)
 
 # 2006
 nep06 <- add_column(nep06, PRES = NA, YEAR = 2006)
@@ -46,7 +42,6 @@ get_wanted <- function(nep_table, arg2, arg3) {
 }
 
 nep_full <- bind_rows(get_wanted(nep00),
-                      get_wanted(nep02),
                       get_wanted(nep04),
                       get_wanted(nep06),
                       get_wanted(nep08),
