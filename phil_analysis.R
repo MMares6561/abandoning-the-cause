@@ -81,10 +81,14 @@ phil_analysis <- function(data_set,target_year){
 ##Creating CSV of Results
 
 phil_results_table <- data.frame(group,
-                                  phil_analysis(nep_full,2000),
-                                  phil_analysis(nep_full,2004),
-                                  phil_analysis(nep_full,2008),
-                                  phil_analysis(nep_full,2012),
-                                  phil_analysis(nep_full,2016))
+                                 phil_analysis(nep_full,2000),
+                                 phil_analysis(nep_full,2004),
+                                 phil_analysis(nep_full,2006),
+                                 phil_analysis(nep_full,2008),
+                                 phil_analysis(nep_full,2010),
+                                 phil_analysis(nep_full,2012),
+                                 phil_analysis(nep_full,2014),
+                                 phil_analysis(nep_full,2016),
+                                 phil_analysis(nep_full,2018))
 write.table(phil_results_table, file="phil_results_table.csv", sep=",",row.name=FALSE)
 

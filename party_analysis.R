@@ -101,8 +101,12 @@ party_analysis <- function(data_set,target_year){
 party_results_table <- data.frame(group,
                                  party_analysis(nep_full,2000),
                                  party_analysis(nep_full,2004),
+                                 party_analysis(nep_full,2006),
                                  party_analysis(nep_full,2008),
+                                 party_analysis(nep_full,2010),
                                  party_analysis(nep_full,2012),
-                                 party_analysis(nep_full,2016))
+                                 party_analysis(nep_full,2014),
+                                 party_analysis(nep_full,2016),
+                                 party_analysis(nep_full,2018))
 write.table(party_results_table, file="party_results_table.csv", sep=",",row.name=FALSE)
 
