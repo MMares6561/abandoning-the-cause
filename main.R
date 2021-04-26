@@ -5,17 +5,25 @@
 ##                       Data Grooming and Analysis                       ##
 ############################################################################
 
-# Install and load packages
+# Install and Load Packages
 source("./init.r")
 
-# Load datasets
+# Load Datasets
 source("load_nep_data.r")
 
-# Clean/Filter Data
+# Clean Data
 source("process_data.r")
 
+# Filter Data
+source("filter_categories.r")
 
-source("house_vote.r")
-source("pres_vote.r")
+# Analyze Data
+source("house_analysis.r")
+source("pres_analysis.r")
+source("party_analysis.r")
+source("phil_analysis.r")
+
+
+
 
 #Plot Data
