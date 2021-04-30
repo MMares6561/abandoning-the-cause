@@ -1,3 +1,17 @@
+---
+title: "Markdown"
+author: "Mitchell Mares"
+date: "4/28/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
 # Process Data
 
 pacman::p_load(tidyverse)
@@ -50,6 +64,5 @@ nep_full <- bind_rows(get_wanted(nep00),
                       get_wanted(nep14),
                       get_wanted(nep16),
                       get_wanted(nep18))
+```
 
-# Remove Respondents w/o LGBT Data
-nep_full <- drop_na(nep_full,GAY)

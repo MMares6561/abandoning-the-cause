@@ -79,8 +79,11 @@ nep_non_pres_dummies <- add_column(nep_non_pres_dummies,
 nep_full_dummies <- bind_rows(nep_pres_dummies,
                               nep_non_pres_dummies)
 ## Analyzing Index 
-mean_ind <- function(data_set){
-  round(mean(data_set[["IND"]]),3)
+mean_LIB <- function(data_set){
+  round(mean(data_set[["LIB"]]),3)
+}
+mean_CON <- function(data_set){
+  round(mean(data_set[["CON"]]),3)
 }
 mean_VOTEind <- function(data_set){
   round(mean(data_set[["VOTEIND"]]),3)
@@ -88,8 +91,48 @@ mean_VOTEind <- function(data_set){
 mean_IDind <- function(data_set){
   round(mean(data_set[["IDIND"]]),3)
 }
+mean_ind <- function(data_set){
+  round(mean(data_set[["IND"]]),3)
+}
+
 ind_analysis <- function(data_set,target_year){
   x <- year(data_set,target_year)
+  mean_LIB_col <- c(mean_LIB(straight(x)),
+                    mean_LIB(lgbt(x)),
+                    mean_LIB(men(straight(x))),
+                    mean_LIB(men(lgbt(x))),
+                    mean_LIB(women(straight(x))),
+                    mean_LIB(women(lgbt(x))),
+                    mean_LIB(white(straight(x))),
+                    mean_LIB(white(lgbt(x))),
+                    mean_LIB(poc(straight(x))),
+                    mean_LIB(poc(lgbt(x))),
+                    mean_LIB(white(men((straight(x))))),
+                    mean_LIB(white(men(lgbt(x)))),
+                    mean_LIB(poc(men(straight(x)))),
+                    mean_LIB(poc(men(lgbt(x)))),
+                    mean_LIB(white(women(straight(x)))),
+                    mean_LIB(white(women(lgbt(x)))),
+                    mean_LIB(poc(women(straight(x)))),
+                    mean_LIB(poc(women(lgbt(x)))))
+  mean_CON_col <- c(mean_CON(straight(x)),
+                    mean_CON(lgbt(x)),
+                    mean_CON(men(straight(x))),
+                    mean_CON(men(lgbt(x))),
+                    mean_CON(women(straight(x))),
+                    mean_CON(women(lgbt(x))),
+                    mean_CON(white(straight(x))),
+                    mean_CON(white(lgbt(x))),
+                    mean_CON(poc(straight(x))),
+                    mean_CON(poc(lgbt(x))),
+                    mean_CON(white(men((straight(x))))),
+                    mean_CON(white(men(lgbt(x)))),
+                    mean_CON(poc(men(straight(x)))),
+                    mean_CON(poc(men(lgbt(x)))),
+                    mean_CON(white(women(straight(x)))),
+                    mean_CON(white(women(lgbt(x)))),
+                    mean_CON(poc(women(straight(x)))),
+                    mean_CON(poc(women(lgbt(x)))))
   mean_VOTEind_col <- c(mean_VOTEind(straight(x)),
                         mean_VOTEind(lgbt(x)),
                         mean_VOTEind(men(straight(x))),
@@ -162,7 +205,12 @@ ind_analysis <- function(data_set,target_year){
            nrow(white(women(lgbt(x)))),
            nrow(poc(women(straight(x)))),
            nrow(poc(women(lgbt(x)))))
-  return(as_tibble(data.frame(mean_VOTEind_col,mean_IDind_col,mean_ind_col,obs)))
+  return(as_tibble(data.frame(mean_LIB_col,
+                              mean_CON_col,
+                              mean_VOTEind_col,
+                              mean_IDind_col,
+                              mean_ind_col,
+                              obs)))
 }
 ## Creating CSV of Results
 

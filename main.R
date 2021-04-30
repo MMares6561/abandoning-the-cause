@@ -22,8 +22,6 @@ source("house_analysis.r")
 source("pres_analysis.r")
 source("party_analysis.r")
 source("phil_analysis.r")
-source("party_index.r")
-
-
+source("index_analysis.r")
 
 #Plot Data
