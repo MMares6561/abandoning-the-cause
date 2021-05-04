@@ -68,24 +68,32 @@ nep_non_pres <- bind_rows(year(nep_full,2006),
                           year(nep_full,2018))
 nep_non_pres$PRES <- NULL
 
-dummy_targets_non_pres <- c("HOU","PARTYID","PHIL3")
-nep_non_pres_dummies <- drop_na(nep_non_pres,all_of(dummy_targets_non_pres))
+dummy_targets_non_pres <- c("HOU","SEN","GOV","PARTYID","PHIL3")
+nep_non_pres_dummies <- drop_na(nep_non_pres, all_of(dummy_targets_non_pres)) 
 nep_non_pres_dummies <- dummy_cols(nep_non_pres_dummies, 
                                    select_columns = all_of(dummy_targets_non_pres))
 
 nep_non_pres_dummies <- add_column(nep_non_pres_dummies, 
                                LIB = (0 -
                                         nep_non_pres_dummies$HOU_1 -
+                                        nep_non_pres_dummies$SEN_1 -
+                                        nep_non_pres_dummies$GOV_1 -
                                         nep_non_pres_dummies$PARTYID_1 -
-                                        nep_non_pres_dummies$PHIL3_1)/3)
+                                        nep_non_pres_dummies$PHIL3_1)/5)
 nep_non_pres_dummies <- add_column(nep_non_pres_dummies, 
                                CON = (nep_non_pres_dummies$HOU_2 +
+                                        nep_non_pres_dummies$SEN_2 +
+                                        nep_non_pres_dummies$GOV_2 +
                                         nep_non_pres_dummies$PARTYID_2 +
-                                        nep_non_pres_dummies$PHIL3_3)/3)
+                                        nep_non_pres_dummies$PHIL3_3)/5)
 nep_non_pres_dummies <- add_column(nep_non_pres_dummies,
-                                   VOTEIND = (0 -
-                                                nep_non_pres_dummies$HOU_1 +
-                                                nep_non_pres_dummies$HOU_2))
+                                   VOTEIND = ((0 -
+                                                nep_non_pres_dummies$HOU_1 -
+                                                nep_non_pres_dummies$SEN_1 -
+                                                nep_non_pres_dummies$GOV_1 +
+                                                nep_non_pres_dummies$HOU_2 +
+                                                nep_non_pres_dummies$SEN_2 +
+                                                nep_non_pres_dummies$GOV_2)/3))
 nep_non_pres_dummies <- add_column(nep_non_pres_dummies,
                                    IDIND = (0 -
                                               nep_non_pres_dummies$PARTYID_1 -
